@@ -19,3 +19,10 @@ Predict your test_df values using XGBoost.
 
 dataset : https://github.com/Simplilearn-Edu/Machine-Learning--Projects
 
+References :- 
+Features selection(removing constant variance columns )
+https://stackabuse.com/applying-filter-methods-in-python-for-feature-selection/
+
+https://colab.research.google.com/drive/1qRhjzKdPuYAg6XvJpIrvptj4ykQHCPyq
+https://www.kaggle.com/eswarchandt/amazon-user-based-recommendation-system
+
