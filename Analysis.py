@@ -66,8 +66,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=1/4, random_
 
 #Apply Encoder 
 #from feature_engine.categorical_encoders import OrdinalCategoricalEncoder, RareLabelCategoricalEncoder
-from feature_engine import categorical_encoders as ce
-rare = RareLabelCategoricalEncoder()
+from feature_engine.categorical_encoders import RareLabelEncoder
+rare = ce.RareLabelCategoricalEncoder()
 rare.fit(X_train)
 
 # Tranform X_train, X_test and new_data
@@ -77,7 +77,7 @@ X_test = rare.transform(X_test)
 new_data = rare.transform(new_data)
 
 # define your object
-encoder = OrdinalCategoricalEncoder(encoding_method='arbitrary', )
+encoder = ce.OrdinalCategoricalEncoder(encoding_method='arbitrary', )
 
 # fit your training data
 encoder.fit(X_train)
