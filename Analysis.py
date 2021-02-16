@@ -4,7 +4,7 @@ import pandas as pd
 #importing test and train dataset as dataframe
 Train = pd.DataFrame(pd.read_csv('train.csv'))
 Test = pd.DataFrame(pd.read_csv('test.csv'))
-"""
+
 #Checking dataset values 
 print(Train.head())
 print(Test.head())
@@ -19,6 +19,7 @@ print(Test.describe())
 
 #Converting string values to float for processing 
 
+"""
 #Removing constant columns (0 variance)
 from sklearn.feature_selection import VarianceThreshold
 constant_filter = VarianceThreshold(threshold=0)
@@ -37,14 +38,14 @@ Test = constant_filter.transform(Test)
 
 print(Train.describe())
 print(Test.describe())
- 
+
 #Remove columns with 0 variance 
 Train = Train.loc[:, (Train != Train.iloc[0]).any()] 
 print(Train.head())
 
 Test = Test.loc[:, (Test != Test.iloc[0]).any()] 
 print(Test.head())
-""" 
+"""
 #Checking for null and unique values 
 print(Train.isnull())
 print(Train.nunique(axis=1))
@@ -116,5 +117,10 @@ print(rmse)
 
 # Predicting Test Data 
 project_preds = xgbr.predict(new_data)
-project_preds
+print(project_preds)
 
+# Save a pickel file 
+import pickle
+pickle_out = open("classifier.pkl","wb")
+pickle.dump(xgbr,pickle_out)
+pickle_out.close()
