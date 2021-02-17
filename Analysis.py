@@ -77,7 +77,7 @@ X_train = X_train.apply(le.fit_transform)
 X_test = X_test.apply(le.fit_transform)
 new_data = new_data.apply(le.fit_transform)
 
-
+print(X_train.head())
 #Performing dimensional reduction 
 from sklearn.decomposition import PCA
 
